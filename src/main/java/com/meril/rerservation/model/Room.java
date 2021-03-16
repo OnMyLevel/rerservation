@@ -21,7 +21,7 @@ public class Room {
 	@Column  
 	private String roomName; 
 	@Column  
-	private int reservation;
+	private int reservationId;
 	
 	
 	public Room(){
@@ -32,7 +32,7 @@ public class Room {
 		super();
 		this.roomId = roomId;
 		this.roomName = roomName;
-		this.reservation = reservation;
+		this.reservationId = reservation;
 	}
 
 
@@ -55,11 +55,11 @@ public class Room {
 
 
 	public int getReservation() {
-		return reservation;
+		return reservationId;
 	}
 
 	public void setReservation(int reservation) {
-		this.reservation = reservation;
+		this.reservationId = reservation;
 	}
 
 }
