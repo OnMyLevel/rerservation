@@ -1,7 +1,6 @@
 package com.meril.rerservation.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 @Entity  
 //defining class name as Table name  
 @Table 
-public class Room {
+public class Room { 
 	
 	//Defining book id as primary key  
 	@Id  

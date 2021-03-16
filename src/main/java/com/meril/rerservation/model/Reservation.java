@@ -6,14 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.*;
+
 
 
 //mark class as an Entity   
 @Entity  
 //defining class name as Table name  
 @Table 
-public class Reservation {
+public class Reservation { 
 	
 	//Defining book id as primary key  
 	@Id  

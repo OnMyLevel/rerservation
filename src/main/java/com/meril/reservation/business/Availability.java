@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+
 public class Availability {
 	
 	private static final int DURATIONOLONGERTHANTHREEDAYS= 3;
@@ -19,8 +21,13 @@ public class Availability {
 	public static int getDurationolongerthanthreedays() {
 		return DURATIONOLONGERTHANTHREEDAYS;
 	}
-	
-	public boolean checkDate(String dateStart, String dateEnd) {
+	/**
+	 * Test si les dates sont valide
+	 * @param dateStart
+	 * @param dateEnd
+	 * @return
+	 */
+	public static boolean checkDate(String dateStart, String dateEnd) {
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
 		Date dateOne = null;
@@ -45,7 +52,13 @@ public class Availability {
 		
 	}
 	
-	public boolean nolongerThanThreeDays(String dateStart, String dateEnd) {
+	/**
+	 * Verification que la durée du séjour et bien inférieur à 3 jours
+	 * @param dateStart
+	 * @param dateEnd
+	 * @return
+	 */
+	public static boolean nolongerThanThreeDays(String dateStart, String dateEnd) {
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
 		Date dateOne = null;
@@ -61,15 +74,19 @@ public class Availability {
 		
 		long diff = dateTwo.getTime() - dateOne.getTime();
 	    float res = (diff / (1000*60*60*24));
-		if((int)res <= this.getDurationolongerthanthreedays()) {
+		if((int)res <= Availability.getDurationolongerthanthreedays()) {
 			
 			return true;
 		}
 		
 		return false;
 	}
-	
-	public boolean reservationDateLessThanThirdyDay(String dateStart) {
+	/**
+	 * La reservation n'est pas plus de 30 jours à l'avance
+	 * @param dateStart
+	 * @return
+	 */
+	public static boolean reservationDateLessThanThirdyDay(String dateStart) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
 		Date dateOne = null;
 		
@@ -83,14 +100,18 @@ public class Availability {
 		
 		long diff = dateOne.getTime() - new Date().getTime();
 	    float res = (diff / (1000*60*60*24));
-		if((int)res <= this.getReservationlessthanthirthydays()) {
+		if((int)res <= Availability.getReservationlessthanthirthydays()) {
 			
 			 return true;
 		}
 		return false;
 	}
-	
-	public boolean nextEntryDate(String dateStart) {
+	/**
+	 * La date de réservation suit la date d'arrivée 
+	 * @param dateStart
+	 * @return
+	 */
+	public static boolean nextEntryDate(String dateStart) {
 		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
 		Date dateOne = null;
