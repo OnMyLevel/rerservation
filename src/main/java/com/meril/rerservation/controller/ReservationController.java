@@ -30,7 +30,7 @@ public class ReservationController {
 	AvailabilityService availability; // Injection de la classe Availability
 	
 	//Récupération de toutes les reservations présents en BDD   
-	@GetMapping("/reservation")  
+	@GetMapping("/reservations")  
 	private List<Reservation> getAllReservations()   
 	{  
 		return reservationService.getAllReservations();  
@@ -44,14 +44,14 @@ public class ReservationController {
 	}  
 	
 	//Suppression d'une reservation 
-	@DeleteMapping("/reservation/{reservationid}")  
+	@DeleteMapping("/deleteReservation/{reservationid}")  
 	private void deleteReservation(@PathVariable("reservationid") int reservationid)   
 	{  
 		reservationService.delete(reservationid);  
 	}  
 	
 	//Modification d'une reservation 
-	@PostMapping("/reservation")  
+	@PostMapping("/saveReservation")  
 	private String saveReservation(@RequestBody Reservation reservation)   
 	{  
 		if( this.availability.getAvailability().checkDate(reservation.getDateStart(),reservation.getDateEnd()) 
