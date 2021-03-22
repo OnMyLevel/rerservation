@@ -17,14 +17,14 @@ public class Reservation {
 	
 	//Defining book id as primary key  
 	@Id  
-	@Column  
+	@Column(name="reservationid")  
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int reservationId;  
-	@Column  
+	@Column(name ="reservationname")  
 	private String reservationName;  
-	@Column  
+	@Column(name ="datestart")  
 	private String dateStart;  
-	@Column  
+	@Column (name="dateend") 
 	private String dateEnd; 
 	
 	public Reservation(int reservationId, String reservationName, String dateStart, String dateEnd) {

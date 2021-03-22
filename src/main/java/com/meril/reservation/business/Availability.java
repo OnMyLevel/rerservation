@@ -4,12 +4,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.meril.rerservation.controller.ReservationController;
+
 
 
 public class Availability {
 	
 	private static final int DURATIONOLONGERTHANTHREEDAYS= 3;
 	private static final int RESERVATIONLESSTHANTHIRTHYDAYS= 30;
+	
+	private static final  Logger logger = LoggerFactory.getLogger(Availability.class);
 	
 	public Availability() {
 	}
@@ -29,7 +36,8 @@ public class Availability {
 	 */
 	public static boolean checkDate(String dateStart, String dateEnd) {
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
+		Availability.logger.info("Test: checkDate");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Date dateOne = null;
 		Date dateTwo = null;
 		
@@ -60,7 +68,8 @@ public class Availability {
 	 */
 	public static boolean nolongerThanThreeDays(String dateStart, String dateEnd) {
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
+		Availability.logger.info("Test : nolongerThanThreeDays");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Date dateOne = null;
 		Date dateTwo = null;
 		
@@ -87,7 +96,9 @@ public class Availability {
 	 * @return
 	 */
 	public static boolean reservationDateLessThanThirdyDay(String dateStart) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
+		
+		Availability.logger.info("Test: reservationDateLessThanThirdyDay");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Date dateOne = null;
 		
 		try {
@@ -113,25 +124,15 @@ public class Availability {
 	 */
 	public static boolean nextEntryDate(String dateStart) {
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
-		Date dateOne = null;
+	   Availability.logger.info("Test: nextEntryDate");
+	   SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		
-		try {
-			dateOne = simpleDateFormat.parse(dateStart);
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Date today = new Date();
-		Date nextDate = new Date(today.getTime() + (1000 * 60 * 60 * 24));
-	    
-		if(nextDate.compareTo(dateOne) == 0) {
-			
-			 return true;
-		}
-		return false;
+	   Date today = new Date();
+	   Date nextDate = new Date(today.getTime() + (1000 * 60 * 60 * 24));
+	   String nextDateFormat = simpleDateFormat.format(nextDate);
+	   System.out.println(dateStart+"-"+nextDateFormat);
+	   
+	   return nextDateFormat.equals(dateStart);
 	}
 
 }

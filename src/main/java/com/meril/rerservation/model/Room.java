@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 //mark class as an Entity   
 @Entity  
 //defining class name as Table name  
@@ -14,13 +18,12 @@ import javax.persistence.Table;
 public class Room { 
 	
 	//Defining book id as primary key  
-	@Id  
-	@Column  
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "roomid")
 	private int roomId;  
-	@Column  
+	@Column(name = "roomname")
 	private String roomName; 
-	@Column  
+	@Column(name = "reservationid")  
 	private int reservationId;
 	
 	
