@@ -106,6 +106,8 @@ http://localhost:8080/reservations
 http://localhost:8080/reservation/{reservationid}
 http://localhost:8080/deleteReservation/{reservationid}
 http://localhost:8080/saveReservation
+http://localhost:8080/modifyReservation
+http://localhost:8080/rooms
 ```
 
 # Questions et Commentaires: merilb78@gmail.com
